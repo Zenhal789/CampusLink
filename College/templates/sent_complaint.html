@@ -1,0 +1,17 @@
+{% extends 'student_index.html' %}
+{% block body %}
+<form method="post" action="/college/sentcomp/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <center>
+        <table border="2" class="table" style="background: #ff421b">
+            <tr style="color: white">
+                <th>COMPLAINT</th>
+                <td><textarea name="complaint" class="form-control"></textarea> </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input type="submit" class="btn btn-success" ></td>
+            </tr>
+        </table>
+    </center>
+</form>
+{% endblock %}

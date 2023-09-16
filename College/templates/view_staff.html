@@ -1,0 +1,29 @@
+{% extends 'admin_homepage.html' %}
+{% block body %}
+    <h1 align="center">VIEW STAFF</h1><br>
+    <table border="2" class="table table-bordered">
+        <tr style="color: white">
+            <th>SERIAL NO</th>
+            <th>NAME</th>
+            <th>PHONE</th>
+            <th>E-MAIL</th>
+            <th>PHOTO</th>
+            <th>DOB</th>
+            <th>DEPARTMENT</th>
+        </tr>
+        {% for i in data %}
+            <tr style="color:white;">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.staff_name }}</td>
+            <td>{{ i.phone }}</td>
+            <td>{{ i.email }}</td>
+            <td><img src="{{ i.photo }}" width="50" height="50" ></td>
+            <td>{{ i.dob }}</td>
+            <td>{{ i.DEPARTMENT.depart_name }}</td>
+            <td><a style="color: white" href="/college/edit_staff/{{ i.id }}#work"><input type="button" value="Edit" class="btn btn-success"> </a></td>
+                <td><a style="color: white" href="/college/deletesd/{{ i.id }}"><input type="button" value="Delete" class="btn btn-success"> </a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

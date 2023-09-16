@@ -1,0 +1,19 @@
+{% extends 'staff_index.html' %}
+{% block body %}
+    <table border ="2" class="table table-bordered table-hover " style="background: #338cff">
+        <tr style="color: white">
+            <th>SERIAL NO</th>
+            <th>COURSE NAME</th>
+            <th>DEP NAME</th>
+        </tr>
+
+        {% for i in data %}
+            <tr style="color: white">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.coursename }}</td>
+            <td>{{ i.DEPT.depart_name }}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

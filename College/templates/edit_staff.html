@@ -1,0 +1,49 @@
+{% extends 'admin_homepage.html' %}
+{% block body %}
+<form method="post" action="/college/edit_staffpost/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-bordered table-hover">
+        <tr style="color: white">
+            <input type="hidden" value="{{ did }}" name="id9" class="form-control">
+            <th>Name</th>
+            <td><input type="text" name="name" value="{{ data.staff_name }}" class="form-control"></td>
+        </tr>
+        <tr style="color: white">
+            <th>Phone</th>
+            <td><input type="text" name="phone" value="{{ data.phone }}" class="form-control"></td>
+
+        </tr>
+        <tr style="color: white">
+            <th>email</th>
+            <td><input type="text" name="email" value="{{ data.email }}" class="form-control"></td>
+        </tr>
+
+        <tr style="color: white">
+            <th>Photo</th>
+            <td><input type="file" name="photo" class="form-control"></td>
+
+        </tr>
+
+         <tr style="color: white">
+            <th>DOB</th>
+            <td><input type="text" name="dob" value="{{ data.dob }}" class="form-control"></td>
+
+        </tr>
+
+        <tr style="color: white">
+            <th>DEPARTMENT</th>
+            <td>
+                <select name="dropdown" class="form-control">
+                    {% for i in data1 %}
+                        <option value="{{ i.id }}" >{{ i.depart_name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+       <td> <input type="submit" name="s1" class="btn btn-success"></td>
+    </tr>
+    </table>
+</form>
+{% endblock %}

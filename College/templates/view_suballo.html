@@ -1,0 +1,23 @@
+{% extends 'admin_homepage.html' %}
+{% block body %}
+<center>
+<h1>VIEW SUB ALLOCATION</h1><br>
+    <table border="2" class="table table-bordered table-hover">
+        <tr style="color: white">
+            <td>SERIAL NO</td>
+            <td>DEPARTMENT</td>
+            <td>STAFF ID</td>
+        </tr>
+        {% for i in data %}
+            <tr style="color: white">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.DEP.depart_name}}</td>
+            <td>{{ i.STAFF.staff_name }}</td>
+            <td><a style="color: white" href="/college/edit_sub/{{ i.id }}#work"><input type="submit" class="btn btn-success" value="Edit"> </a></td>
+                <td><a style="color: white" href="/college/delete_sub/{{ i.id }}"><input type="submit" class="btn btn-success" value="Delete"></a></td>
+
+            </tr>
+        {% endfor %}
+    </table>
+</center>
+{% endblock %}

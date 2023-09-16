@@ -1,0 +1,27 @@
+{% extends 'staff_index.html' %}
+{% block body %}
+<form>
+    <center>
+        {% csrf_token %}
+        <table border="2" class="table-bordered table-hover table-dark">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Course</th>
+                <th>Login Id</th>
+                <th></th>
+            </tr>
+            {% for i in data %}
+                <tr>
+                <th>{{ i.name }}</th>
+                <th>{{ i.email }}</th>
+                <th>{{ i.phone }}</th>
+                <th>{{ i.COURSE.coursename }}</th>
+                <th>{{ i.LOGIN_id }}</th>
+         </tr>
+             {% endfor %}
+        </table>
+    </center>
+</form>
+{% endblock %}

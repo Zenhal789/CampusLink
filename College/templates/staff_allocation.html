@@ -1,0 +1,34 @@
+{% extends 'admin_homepage.html' %}
+{% block body %}
+<form method="post" action="/college/sub_allopost/" enctype="multipart/form-data">
+    {% csrf_token %}
+<h1 align="center">SUB ALLOCATION</h1><br>
+    <table border="2" class="table table-bordered table-hover">
+        <tr style="color: white">
+            <th>DEPARTMENT</th>
+        <td>
+        <select name="drpdt" class="form-control">
+            {% for i in data %}
+                <option value="{{ i.id }}">{{ i.depart_name }}</option>
+            {% endfor %}
+        </select>
+        </td>
+        </tr>
+    <tr style="color: white">
+        <th>STAFF</th>
+        <td>
+            <select name="drpst" class="form-control">
+                {% for i in data2 %}
+                    <option value="{{ i.id }}">{{ i.staff_name }}</option>
+                {% endfor %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" align="center">
+            <input type="submit" value="Submit" class="btn btn-success">
+        </td>
+    </tr>
+    </table>
+</form>
+{% endblock %}

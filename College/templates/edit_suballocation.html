@@ -1,0 +1,32 @@
+{% extends 'admin_homepage.html' %}
+{% block body %}
+<form method="post" action="/college/edit_subpost/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table table-bordered table-hover">
+        <tr style="color: white">
+            <input type="hidden" value="{{ data.id }}" name="id3" class="form-control">
+            <th>DEPARTMENT</th>
+            <td><select name="drpdt" value="{{ res.id }}" class="form-control">
+            {% for j in data1 %}
+                <option value="{{ j.id }}"{% if dat.DEP_id == j.id %} selected {% endif %}>{{ j.depart_name }}</option>
+            {% endfor %}
+         </select> </td>
+        </tr>
+
+    <tr style="color: white">
+        <th>STAFF</th>
+        <td>
+            <select name="drpst" class="form-control">
+                {% for i in data2 %}
+                <option value="{{ i.id }}" {% if dat.STAFF.id == i.id %} selected {% endif %}>{{ i.staff_name }}</option>
+            {% endfor %}
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+       <td> <input type="submit" name="s1" class="btn btn-success"></td>
+    </tr>
+    </table>
+</form>
+{% endblock %}

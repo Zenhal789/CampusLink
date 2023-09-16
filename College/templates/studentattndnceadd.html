@@ -1,0 +1,43 @@
+{% extends 'staff_index.html' %}
+{% block body %}
+<form method="post" action="/college/stdattndncep/" enctype="multipart/form-data">
+{% csrf_token %}
+<center>
+    <table border="2" class="table table-bordered table-hover" style="background: #338cff">
+        <tr style="color: white">
+            <th>STUDENT NAME</th>
+            <td>
+                <select name="dropdown" class="form-control">
+                    {% for i in data1 %}
+                        <option value="{{ i.id }}">{{ i.name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+
+    <tr style="color: white">
+        <th>STATUS</th>
+        <td>
+            <input type="radio" name="status"  value="present">&nbsp;&nbsp;present&nbsp;&nbsp;
+            <input type="radio" name="status" value="absent">&nbsp;&nbsp;absent&nbsp;&nbsp;
+
+        </td>
+    </tr>
+    <tr style="color: white">
+        <th>DATE</th>
+        <td>
+            <input type="date" name="date">
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>
+                        <input type="submit" class="btn-success">
+
+        </td>
+
+    </tr>
+    </table>
+</center>
+</form>
+{% endblock %}

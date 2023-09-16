@@ -1,0 +1,18 @@
+{% extends 'admin_homepage.html' %}
+{% block body %}
+<form method="post" action="/college/sentreplyp/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <center>
+        <table border="2" class="table table-bordered table-hover">
+            <input type="hidden" value="{{ data.id }}" name="comid" class="form-control">
+            <tr style="color: white">
+                <th>Reply Complaint</th>
+                <td><textarea name="reply" class="form-control"></textarea> </td>
+            </tr>
+            <tr align="center">
+                <td colspan="2"><input type="submit" class="btn btn-success"> </td>
+            </tr>
+        </table>
+    </center>
+</form>
+{% endblock %}

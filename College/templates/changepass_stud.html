@@ -1,0 +1,21 @@
+{% extends 'student_index.html' %}
+{% block body %}
+<form method="post" action="/college/changepass_studp/" enctype="multipart/form-data">
+    {% csrf_token %}
+<h1 align="center">Change Password</h1>
+<table class="table table-bordered table-hover " style="background: #ff421b">
+    <tr>
+        <td><p>Enter your Current Password: &nbsp;<input type="text" name="cpass" class="form-control m-auto"></p> </td>
+    </tr>
+    <tr>
+        <td><p>Enter your New Password: &emsp;&ensp;<input type="text" name="npass" class="form-control"></p> </td>
+    </tr>
+    <tr>
+        <td><p>Confirm your New Password: &nbsp;<input type="text" name="cnpass" class="form-control"></p> </td>
+    </tr>
+    <tr align="center">
+        <td><input type="submit" value="Submit" class="button btn-success"></td>
+    </tr>
+</table>
+    </form>
+{% endblock %}

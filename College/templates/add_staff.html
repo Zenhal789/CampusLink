@@ -1,0 +1,53 @@
+{% extends 'admin_homepage.html' %}
+{% block body %}
+<form method="post" action="/college/add_staffpost/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <center><h1>ADD STAFF</h1></center><br>
+    <center>
+         <table border="2" class="table table-bordered table-hover">
+        <tr>
+            <td style="color: white">NAME</td>
+            <th>
+                <input type="text" name="name" class="form-control">
+            </th>
+        </tr>
+             <tr>
+                 <td style="color: white">PHONE</td>
+                 <th>
+                     <input type="text" name="phone" required class="form-control">
+                 </th>
+             </tr>
+             <tr>
+                 <td style="color: white">E-MAIL</td>
+                 <th>
+                     <input type="text" name="email" required class="form-control">
+                 </th>
+
+             <tr>
+                 <td style="color: white">PHOTO</td>
+                 <th>
+                     <input type="file" name="photo" required class="form-control">
+                 </th>
+             </tr>
+             <tr>
+                 <td style="color: white">DOB</td>
+                 <th>
+                     <input type="date" required name="dob" class="form-control">
+                 </th>
+             </tr>
+             <tr>
+                 <th style="color: white">DEPARTMENT</th>
+                 <td>
+                     <select name="dropdown" class="form-control">
+                         {% for i in data %}
+                         <option value = "{{ i.id }}">{{ i.depart_name }}</option>
+                         {% endfor %}
+                     </select>
+                 </td>
+             </tr>
+    </table>
+        <input type="submit" name="btn" class="btn btn-success">
+    </center>
+
+</form>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'admin_homepage.html' %}
+{% block body %}
+<form method="post" action="/college/add_deptpost/">
+    {% csrf_token %}
+    <center><h1>ADD DEPARTMENT</h1><br>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th style="color: white">DEPARTMENT&nbsp;</th>
+            <td><input type="text" name="dept" class="form-control"><br></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="submit" class="btn btn-success"></td>
+        </tr></center>
+    </table>
+</form>
+{% endblock %}

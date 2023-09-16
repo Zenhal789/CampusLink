@@ -1,0 +1,19 @@
+{% extends 'student_index.html' %}
+{% block body %}
+    <table border="2" class="table table-bordered table-hover" style="background: #ff421b">
+        <tr style="color: white">
+            <th>SERIAL NO</th>
+            <th>NAME</th>
+            <th>STATUS</th>
+            <th>DATE</th>
+        </tr>
+        {% for i in data %}
+            <tr style="color: white">
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.STUDENT.name }}</td>
+            <td>{{ i.status }}</td>
+            <td>{{ i.date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'staff_index.html' %}
+{% block body %}
+<form method="post" action="/college/edit_stdp/" enctype="multipart/form-data">
+    {% csrf_token %}
+    <table class="table-bordered table-hover table-dark">
+        <tr>
+            <input type="hidden" value="{{ res.id }}" name="zen">
+            <th>Name</th>
+            <td><input type="text" name="name" value="{{ res.name }}"></td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td><input type="text" name="phone" value="{{ res.email }}"></td>
+
+        </tr>
+        <tr>
+            <th>Phone</th>
+            <td><input type="text" name="email" value="{{ res.phone }}"></td>
+        </tr>
+
+         <tr>
+            <th>DOB</th>
+            <td><input type="text" name="dob" value="{{ res.dob }}"></td>
+
+        </tr>
+
+        <tr>
+            <th>COURSE</th>
+            <td>
+                <select name="dropdown88">
+                    {% for i in res1 %}
+                        <option value="{{ i.id }}" {% if i.id == res.id %} selected{% endif %} >{{ i.coursename }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+       <td> <input type="submit" name="s1"></td>
+    </tr>
+    </table>
+</form>
+{% endblock %}

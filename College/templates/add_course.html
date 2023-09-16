@@ -1,0 +1,28 @@
+{% extends 'admin_homepage.html' %}
+{% block body %}
+<form method="post" action="/college/add_coursepost/" enctype="multipart/form-data">
+    {% csrf_token %}
+<center><h1>ADD COURSE</h1></center><br>
+    <table class="table table-bordered table-hover">
+        <tr>
+            <th style="
+    color: white;
+">DEPARTMENT</th>
+            <td><select name="dropdown" class="form-control">
+                {% for i in data %}
+                    <option value="{{ i.id }}">{{ i.depart_name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+    <tr>
+        <th style="color: white">COURSE NAME</th>
+        <td><input type="text" name="course" required class="form-control" ></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" name="btn" class="btn btn-success"></td>
+    </tr>
+    </table>
+
+</form>
+{% endblock %}

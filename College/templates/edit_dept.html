@@ -1,0 +1,20 @@
+{% extends 'admin_homepage.html' %}
+{% block body %}
+<form method="post" action="/college/edit_deptpost/">
+    {% csrf_token %}
+    <table class="table table-bordered table-hover">
+        <tr style="color: white">
+            <input type="hidden" value="{{ data.id }}" name ="id7">
+            <th>Department</th>
+            <td>
+                <input type="text" name="dept" value="{{ data.depart_name }}" class="form-control">
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="2">
+                <input type="submit" class="btn btn-success">
+            </td>
+        </tr>
+    </table>
+</form>
+{% endblock %}
